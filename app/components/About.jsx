@@ -3,7 +3,7 @@ let React = require('react');
 let About = (props) => {
     return (
         <div>
-            <h1 className="text-center"> About </h1>
+            <h1 className="text-center page-title"> About </h1>
             <p> 
                 Weather Application built with React.
                 Built for learning React component and states.

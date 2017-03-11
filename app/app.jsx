@@ -10,6 +10,9 @@ let Examples = require('./components/Examples');
 require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
 $(document).foundation();
 
+// load custom css
+require('style-loader!css-loader!../app/styles/app.css');
+
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path='/' component={Main}>
