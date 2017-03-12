@@ -35,6 +35,22 @@ let Weather = React.createClass({
         });
     },
 
+    componentDidMount : function() {
+         let cityName = this.props.location.query.cityName;
+         if ( cityName && cityName.length > 0 ) {
+             this.handleSearch( cityName );
+             window.location.hash = '#/';
+         }
+    },
+
+    componentWillReceiveProps : function(newProps) { // called when component props get updated
+        let cityName = newProps.location.query.cityName;
+         if ( cityName && cityName.length > 0 ) {
+             this.handleSearch( cityName );
+             window.location.hash = '#/';
+         }
+    },
+
     render : function(){
 
         let isLoading = this.state.isLoading;
@@ -43,7 +59,7 @@ let Weather = React.createClass({
         let errorMessage = this.state.errorMessage;
 
         function renderError(){
-            if ( typeof errorMessage == 'string')
+            if ( errorMessage  )
                 return <ErrorModal message={errorMessage} />
         };
 
